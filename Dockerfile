@@ -1,8 +1,5 @@
 # dmp-golang-ci image
-FROM circleci/golang:1.12
-
-# Install ksonnet 
-RUN go get -d -u -v github.com/ksonnet/kubecfg
+FROM circleci/golang:1.14
 
 # Install gorunpkg
 RUN go get github.com/vektah/gorunpkg
