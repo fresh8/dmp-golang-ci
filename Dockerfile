@@ -12,11 +12,11 @@ RUN go get -d -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
 
 # Protobuf
 ENV PROTOC_VER=3.12.4
-ENV PROTOC_ZIP=protoc-$PROTOC_VER-linux-x86_64.zip
-RUN curl -OL https://github.com/google/protobuf/releases/download/$PROTOC_VER/$PROTOC_ZIP \ 
-    && sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc \
-    && sudo unzip -o $PROTOC_ZIP -d /usr/local include/* \
-    && rm -f $PROTOC_ZIP
+ENV PROTOC_ZIP=protoc-${PROTOC_VER}-linux-x86_64.zip
+RUN curl -OL https://github.com/google/protobuf/releases/download/v${PROTOC_VER}/${PROTOC_ZIP} \ 
+    && sudo unzip -o ${PROTOC_ZIP} -d /usr/local bin/protoc \
+    && sudo unzip -o ${PROTOC_ZIP} -d /usr/local include/* \
+    && rm -f ${PROTOC_ZIP}
 
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
