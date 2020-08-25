@@ -22,6 +22,8 @@ RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
 
+RUN chmod +x /usr/local/bin/protoc
+
 # Install Pact tooling
 RUN cd /home/circleci && \
   curl -fsSL https://raw.githubusercontent.com/pact-foundation/pact-ruby-standalone/master/install.sh | sh
